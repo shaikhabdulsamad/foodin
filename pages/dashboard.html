@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodInn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-0">
+            <div class="container-md">
+                <a class="navbar-brand p-0" href="#"><img src="../images/download.png" width="90" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#"> My Dishes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Add Dishes</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Orders
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="pending.html">Pending</a>
+                                <a class="dropdown-item" href="accepted.html">Accepted</a>
+                                <a class="dropdown-item" href="delivered.html">Delivered</a>
+
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="logout()">Logout</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+
+    <!-- <div class="container mt-60" id="dishes">
+<div class="row" id="row">
+
+</div>
+    </div> -->
+
+    <table class="table mt-60 container">
+        <thead>
+          <tr>
+            <!-- <th scope="col">#</th> -->
+            <th scope="col">Dish Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">category</th>
+            <th scope="col">Delivery Type</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+        
+      
+        </tbody>
+      </table>
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Dish</h5>
+                    <button id="closeBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="card card-signin">
+                        <div class="card-body">
+
+
+                            <div class="input-div">
+
+                                <input type="text" id="name" class="form-control" placeholder="Dish Name" autofocus
+                                    required>
+                            </div>
+
+
+                            <div class="input-div">
+
+                                <input type="number" id="price" class="form-control" placeholder="Price" required>
+                            </div>
+                            <div class="input-div">
+
+                                <select class="form-control select" id="category">
+                                    <option>Select Item</option>
+                                    <option>Burger</option>
+                                    <option>Rice</option>
+                                    <option>Pizza</option>
+                                    <option>Roll</option>
+                                </select>
+                            </div>
+
+                            <div class="input-div">
+
+                                <select class="form-control select" id="deliveryType">
+                                    <option>Delivery Type</option>
+                                    <option>Free</option>
+                                    <option>Paid</option>
+
+                                </select>
+                            </div>
+
+                            <div class="input-div">
+
+                                <input type="file" id="image" class="" placeholder="Food Image" required>
+                            </div>
+
+                        
+                            <button onclick="submit()" id="btnText"
+                                class="btn btn-lg btn-primary btn-block text-uppercase">
+                                <span id="text">Submit</span>
+                                <div class="text-center" style="display: none;" id="loader">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden"></span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <div class="alert alert-danger mt-3" role="alert" id="redAlert" style="display: none;">
+                                A simple danger alert—check it out!
+                            </div>
+
+                            <div class="alert alert-success mt-3" role="alert" id="greenAlert" style="display: none;">
+                                A simple success alert—check it out!
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBHr9fr5xwPBDepNKikGMbAWUCdYzXLNaM",
+            authDomain: "e-restaurant-3341f.firebaseapp.com",
+            projectId: "e-restaurant-3341f",
+            storageBucket: "e-restaurant-3341f.appspot.com",
+            messagingSenderId: "20267283313",
+            appId: "1:20267283313:web:afe2587d8670ae2f757cd0",
+            measurementId: "G-561VHL8Y43"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

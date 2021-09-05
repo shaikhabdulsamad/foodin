@@ -1,0 +1,212 @@
+
+.navbar{
+  background: rgb(248,177,1);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+
+.mt-60{
+  margin-top: 100px;
+}
+.mt-50{
+  margin-top: 60px;
+}
+
+/* form styling */
+
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: .75rem;
+  }
+  
+
+  
+  .card-signin {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-signin .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+  
+  .card-signin .card-body {
+    padding: 2rem;
+  }
+  
+  .form-signin {
+    width: 100%;
+  }
+   
+   .form-signin .btn {
+    font-size: 60%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.2s;
+  }
+   
+  .input-div{
+    margin-bottom: 20px;
+    border-radius: 10px;
+    
+  }
+
+  .input-div input{
+    height: 50px;
+    border-radius: 10rem;
+    padding: 0 20px;
+  }
+
+  .modal{
+      overflow-y: scroll !important;
+  }
+
+  .nav-link{
+    font-weight: 400 !important;
+    color: black !important;
+  }
+  
+  .nav-link:hover , .click{
+  background-color: white;
+  border-radius: 3px;
+  
+  }
+ .select{
+  height: 50px;
+  border-radius: 10rem;
+  padding: 0 20px;
+ }
+
+ .btn-primary , .swal-button{
+   background-color: rgb(248,177,1) !important;
+   border: none !important;
+   color: black;
+ }
+
+
+  
+.footer{
+  width: 100%;
+  background-color:rgb(240, 240, 240) ;
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub_footer{
+  width: 70%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  
+}
+
+.logo{
+  flex: 2;
+  padding: 0 10px;
+}
+.logo img{
+  width: 60px;
+  
+}
+
+.links {
+  flex: 1;
+  padding: 0 10px;
+}
+.links h6{
+  font-size: 16px;
+  font-weight: 900;
+  padding: 10px 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.links ul{
+ margin: 0;
+ padding: 0;
+
+}
+.links ul li{
+  list-style: none;
+  padding:  10px 0;
+}
+.links ul li a{
+  text-decoration: none;
+  color: black;
+}
+
+.copyright{
+  background-color: rgb(248,177,1);
+  display: flex;
+  justify-content: space-between;
+  
+  width: 100%;
+ text-align: center;
+}
+
+.copyright p{
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  padding: 0 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+.social_icons{
+  display: flex;
+ margin-top: 5px;
+}
+
+.circle{
+  height: 20px;
+  width: 20px;
+  border: 2px solid gray;
+  border-radius: 100px;
+  margin-left: 10px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-bottom: 10px;
+}
+
+.circle img{
+/* margin-top: 3px; */
+width: 12px;
+height: 12px;
+}
+.nomargn{
+  margin-left: 0;
+}
+
+.height{
+  height:200px
+}
+
+.mt{
+margin-top: 70px;
+}
+
+
+@media only screen and (max-width:950px) {
+  .sub_footer{
+      flex-direction: column;
+  }
+  .links{
+      width: 100%;
+
+  }
+  .logo{
+      width: 100%;
+  }
+}

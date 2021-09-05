@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodInn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/front.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-0 ">
+            <div class="container-md">
+                <a class="navbar-brand p-0" href="#"><img src="images/download.png" width="90" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="about()">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="help()">Help?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/restaurantRegistration.html">I'm a
+                                Restaurant</a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Login</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="cover-image mt-50">
+        <img src="images/delievery-image4.jpg" height="600px" width="100%" alt="">
+      </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                    <button id="closeBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <div class="card card-signin">
+                        <div class="card-body">
+
+
+                            <div class="input-div">
+                                <input type="email" id="email1" class="form-control" placeholder="Email address"
+                                    required autofocus>
+
+                            </div>
+
+                            <div class="input-div">
+                                <input type="password" id="password1" class="form-control" placeholder="Password"
+                                    required>
+
+                            </div>
+
+                           
+                            <button onclick="logIn()" class="btn btn-lg btn-primary btn-block text-uppercase"><span
+                                    id="text1">Log in</span>
+                                <div class="text-center" style="display: none;" id="loader1">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden"></span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <div class="alert alert-danger mt-3" role="alert" id="redAlert1" style="display: none;">
+                                A simple danger alert—check it out!
+                            </div>
+
+                            <div class="alert alert-success mt-3" role="alert" id="greenAlert1" style="display: none;">
+                                A simple success alert—check it out!
+                            </div>
+
+                            <hr class="my-4">
+                            <p>create a new account? Signup <a href="#" onclick="closeSignIn()" data-toggle="modal"
+                                    data-target="#staticBackdrop">here</a> </p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Sign Up</h5>
+                    <button type="button" id="closeBtn2" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card card-signin">
+                        <div class="card-body">
+
+
+                            <div class="input-div">
+
+                                <input type="text" id="name" class="form-control" placeholder="Name"
+                                    autofocus required>
+                            </div>
+
+
+                            <div class="input-div">
+
+                                <input type="email" id="email" class="form-control" placeholder="Email address"
+                                    required>
+                            </div>
+                            <div class="input-div">
+
+                                <input type="text" id="country" class="form-control" placeholder="Country" required>
+                            </div>
+                            <div class="input-div">
+
+                                <input type="text" id="city" class="form-control" placeholder="City" required>
+                            </div>
+
+                            <div class="input-div">
+
+                                <input type="password" id="password" class="form-control" placeholder="Password"
+                                    required>
+                            </div>
+
+                            <!-- <div class="input-div">
+                                <label for="">Profile image:</label>
+                                <input type="file" class="form-control-file" id="profile">
+                            </div> -->
+
+                           
+                            <button onclick="signUp()" id="btnText"
+                                class="btn btn-lg btn-primary btn-block text-uppercase">
+                                <span id="text"> Sign up</span>
+                                <div class="text-center" style="display: none;" id="loader">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden"></span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <!-- <div style="display: none;" class="progress mt-3" id="progress">
+                                <div id="bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25"
+                                    aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div> -->
+
+                            <div class="alert alert-danger mt-3" role="alert" id="redAlert" style="display: none;">
+                                A simple danger alert—check it out!
+                            </div>
+
+                            <div class="alert alert-success mt-3" role="alert" id="greenAlert" style="display: none;">
+                                A simple success alert—check it out!
+                            </div>
+
+
+                            <hr class="my-4">
+                            <p>already have an account? Log in <a href="#" onclick="closeSignIn()" data-toggle="modal"
+                                    data-target="#exampleModal">here</a> </p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBHr9fr5xwPBDepNKikGMbAWUCdYzXLNaM",
+            authDomain: "e-restaurant-3341f.firebaseapp.com",
+            projectId: "e-restaurant-3341f",
+            storageBucket: "e-restaurant-3341f.appspot.com",
+            messagingSenderId: "20267283313",
+            appId: "1:20267283313:web:afe2587d8670ae2f757cd0",
+            measurementId: "G-561VHL8Y43"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <!-- <script src="js/restaurantRegister.js"></script>
+    <script src="js/restaurantLogin.js"></script> -->
+    <script src="js/customerSignup.js"></script>
+    <script src="js/customerLogin.js"></script>
+</body>
+
+</html>
