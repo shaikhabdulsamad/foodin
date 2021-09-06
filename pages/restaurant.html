@@ -47,7 +47,7 @@
         </nav>
     </div>
 
-    <div class="rest-cover">
+    <div class="rest-cover" id="rest-cover">
         
     </div>
 
@@ -55,8 +55,8 @@
     
 
         <div class="mt-5">
-            <h3>Popular restaurants</h3>
-            <div id="spiner">
+            <h3><span id="rest-name"></span></h3>
+            <div id="spiner" class="mt-60">
                 <div class="spinner-grow text-secondary" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
@@ -112,7 +112,7 @@
     </script>
 
 
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

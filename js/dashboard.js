@@ -93,7 +93,7 @@ let submit = async () => {
 
                     Itemname.value = ""
                     price.value = ""
-                    category.value = "Select Item"
+                    category.value = "Select Category"
                     deliveryType.value = "Delivery Type"
                     profile.value = ""
 
@@ -133,13 +133,13 @@ firebase.auth().onAuthStateChanged((user) => {
 
             var a = data.val()
             let tbody = document.getElementById('tbody');
-
+           
 
             tbody.innerHTML += `
                     <tr>
                 
                     <td>${a.Itemname}</td>
-                    <td> <img src="${a.profile}" style="width:50px"></td>
+                    <td> <img src="${a.profile}" style="width:50px;  height:40px "></td>
                     <td>${a.category}</td>
                     <td>${a.deliveryType}</td>
                     <td>${a.price}</td>
@@ -150,3 +150,17 @@ firebase.auth().onAuthStateChanged((user) => {
         
     }
 });
+
+
+
+
+firebase.database().ref(`orders/${uid}`).on('child_added', (data) => {
+    // console.log(data.val())
+
+    var a = data.val()
+let pending = document.getElementById('pending-orders')
+pending.innerHTML +=`
+
+`
+
+})
