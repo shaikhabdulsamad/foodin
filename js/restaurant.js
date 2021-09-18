@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged((user) => {
 })
 
         firebase.database().ref(`Items/${uid}`).on('child_added', (data) => {
-        console.log(data.val())
+        // console.log(data.val())
         
              
         let a = data.val()
@@ -76,10 +76,12 @@ let getUID = () => {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 resolve(user.uid)
+                // console.log(user.uid)
             }
         })
     })
 }
+// getUID()
 
 let ordernow = async (image, name, price, key) => {
     let uid = window.location.hash.slice(1);
@@ -93,7 +95,7 @@ let ordernow = async (image, name, price, key) => {
         uid,
         customerUID
     }
-    firebase.database().ref(`orders/${uid}`).push(order)
+    firebase.database().ref(`orders/${uid}/${key}`).set(order)
 
     
         .then(() => {

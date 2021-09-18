@@ -120,20 +120,22 @@ let submit = async () => {
     });
 }
 
+let myDishes = ()=>{
+
 
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
 
         var uid = user.uid;
-    
+
 
         firebase.database().ref(`Items/${uid}`).on('child_added', (data) => {
-            console.log(data.val())
+            // console.log(data.val())
 
             var a = data.val()
             let tbody = document.getElementById('tbody');
-           
+
 
             tbody.innerHTML += `
                     <tr>
@@ -147,20 +149,86 @@ firebase.auth().onAuthStateChanged((user) => {
                   </tr>`
 
         })
-        
+
     }
 });
+}
+
+let getOrder = (status) => {
+
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+
+            var uid = user.uid;
 
 
+            let orderList = document.getElementById('order-list')
+
+            firebase.database().ref(`orders/${uid}`).on('child_added', (data) => {
+
+               
+                
+                firebase.database().ref(`users/${data.val().customerUID}`).once('value', (snapshot) => {
+
+                    let orderDetail = { customer: { ...snapshot.val() }, order: { ...data.val() } }
+                  
+                    if (status === orderDetail.order.status) {
+
+                        orderList.innerHTML += `
+                <tr>
+                
+                <td>${orderDetail.customer.username}</td>
+                <td>${orderDetail.customer.email}</td>
+                <td>${orderDetail.order.name}</td>
+                <td>1</td>
+                <td> <button class="btn btn-primary" onClick="${orderDetail.order.status === 'pending' ? accepted(orderDetail.order.key) : delivered(orderDetail.order.key)} "> ${orderDetail.order.status === 'pending' ? "accept" : orderDetail.order.status === 'accepted' ? "deliver" : "delivered" } </button></td>
+               
+          
+                </tr>
+            
+              
+
+                 `
+            
+
+                    }
+
+                })
 
 
-firebase.database().ref(`orders/${uid}`).on('child_added', (data) => {
-    // console.log(data.val())
+            })
 
-    var a = data.val()
-let pending = document.getElementById('pending-orders')
-pending.innerHTML +=`
 
-`
+        }
+    })
+}
 
-})
+
+let accepted = (key)=>{
+
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+
+            var uid = user.uid;
+            firebase.database().ref(`orders/${uid}/${key}`).update({status: "accepted"})
+
+
+        }
+
+    })
+    
+}
+let delivered = (key)=>{
+
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+
+            var uid = user.uid;
+            firebase.database().ref(`orders/${uid}/${key}`).update({status: "delivered"})
+
+
+        }
+
+    })
+  
+}

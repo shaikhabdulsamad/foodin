@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body onload="getOrder('pending')">
 
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-0">
@@ -61,14 +61,15 @@
         <thead>
           <tr>
             <!-- <th scope="col">#</th> -->
-            <th scope="col">Dish Name</th>
-            <th scope="col">Image</th>
-            <th scope="col">category</th>
-            <th scope="col">Delivery Type</th>
-            <th scope="col">Price</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Item</th>
+            <th scope="col">Qty.</th>
+            <th scope="col"></th>
+            
           </tr>
         </thead>
-        <tbody id="pending-orders">
+        <tbody id="order-list">
            
             
       
@@ -76,6 +77,8 @@
     </table>
 
 
+
+    
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
