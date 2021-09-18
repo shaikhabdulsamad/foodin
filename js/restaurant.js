@@ -84,6 +84,7 @@ let getUID = () => {
 // getUID()
 
 let ordernow = async (image, name, price, key) => {
+  
     let uid = window.location.hash.slice(1);
     let customerUID = await getUID();
     let order = {
@@ -100,7 +101,10 @@ let ordernow = async (image, name, price, key) => {
     
         .then(() => {
         
+  
            
             swal("Congratulation!", "Your order has been places succesfuly!", "success");
+
+
         })
 }
