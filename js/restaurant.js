@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged((user) => {
                             <p>Rs. ${a.price}/-</p>
                            
                             
-                            <a href="javascript:void(0)"> <button onclick="ordernow('${a.profile}','${a.Itemname}','${a.price}','${data.key}')" type="button" class="btn btn-primary">Buy now</button> </a>
+                            <a href="javascript:void(0)"> <button onclick="ordernow('${a.profile}','${a.Itemname}','${a.price}','${data.key}')" type="button" class="btn btn-primary">Add to Cart</button> </a>
                          
                             </div>
                                 </div>
@@ -84,7 +84,13 @@ let getUID = () => {
 // getUID()
 
 let ordernow = async (image, name, price, key) => {
-  
+//   let addToCartBtn = document.getElementById('addToCartBtn');
+//   addToCartBtn.innerHTML = `
+//   <div>
+//   <input type="number" />
+//   <span>Add</span>
+//   </div>
+//   `
     let uid = window.location.hash.slice(1);
     let customerUID = await getUID();
     let order = {
@@ -100,10 +106,8 @@ let ordernow = async (image, name, price, key) => {
 
     
         .then(() => {
-        
-  
-           
-            swal("Congratulation!", "Your order has been places succesfuly!", "success");
+         
+            swal("Congratulation!", "Your order has been placed!", "success");
 
 
         })

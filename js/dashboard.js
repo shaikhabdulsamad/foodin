@@ -136,7 +136,7 @@ firebase.auth().onAuthStateChanged((user) => {
             var a = data.val()
             let tbody = document.getElementById('tbody');
 
-
+// a === false ? tbody.innerHTML = "Your restaurant is empty" : 
             tbody.innerHTML += `
                     <tr>
                 
@@ -174,6 +174,8 @@ let getOrder = (status) => {
                   
                     if (status === orderDetail.order.status) {
 
+                       
+
                         orderList.innerHTML += `
                 <tr>
                 
@@ -181,7 +183,9 @@ let getOrder = (status) => {
                 <td>${orderDetail.customer.email}</td>
                 <td>${orderDetail.order.name}</td>
                 <td>1</td>
-                <td> <button class="btn btn-primary" onClick="${orderDetail.order.status === 'pending' ? accepted(orderDetail.order.key) : delivered(orderDetail.order.key)} "> ${orderDetail.order.status === 'pending' ? "accept" : orderDetail.order.status === 'accepted' ? "deliver" : "delivered" } </button></td>
+                <td> <button class="btn btn-primary" onClick="${orderDetail.order.status === 'pending' ? accepted(orderDetail.order.key) : delivered(orderDetail.order.key)} ">
+                 ${orderDetail.order.status === 'pending' ? "accept" : orderDetail.order.status === 'accepted' ? "deliver" : "delivered" } 
+                 </button></td>
                
           
                 </tr>
